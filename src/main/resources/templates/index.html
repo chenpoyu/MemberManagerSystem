@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: cssFragment">
+</head>
+<body>
+	<nav th:replace="fragments/header :: headerFragment"></nav>
+    
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">1234</div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">4321</div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">1111</div>
+        <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">3333</div>
+    </div>
+
+	<footer th:replace="fragments/footer :: copyFragment"></footer>
+	<div th:include="fragments/footer :: jsFragment"></div>
+	<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>

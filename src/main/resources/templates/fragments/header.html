@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- 設定共用CSS與Meta -->
+<head th:fragment="cssFragment">
+	<title>會員管理系統</title>
+	<!-- meta, link and scripts -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+	
+	<!-- CSS和JS的根目錄都在static -->
+	<link rel="stylesheet" type="text/css" href="css/style.css"></link>
+</head>
+
+<!-- 共用抬頭 Nav tabs -->
+<nav class="navbar navbar-expand-md navbar-dark text-light bg-dark" th:fragment="headerFragment">
+	<a class="navbar-brand"><i class="zmdi zmdi-accounts-list zmdi-hc-fw"></i>會員管理系統</a>
+	<button id="navbarButton" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+    <div id="navbarNavDropdown" class="navbar-collapse collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="username"></a>
+            </li>
+            
+            <!-- This menu is hidden in bigger devices with d-sm-none. 
+           The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar itens exclusively for smaller screens  -->
+            <li class="nav-item d-sm-block d-md-none">
+                <a class="nav-item nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item d-sm-block d-md-none">
+                <a class="nav-item nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+            </li>
+            <li class="nav-item d-sm-block d-md-none">
+                <a class="nav-item nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+            </li>
+            <li class="nav-item d-sm-block d-md-none">
+                <a class="nav-item nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+            </li>
+            <!-- Smaller devices menu END -->
+            
+            <li class="nav-item">
+                <a class="nav-link" id="logout"><i class="zmdi zmdi-power zmdi-hc-fw"></i>登出</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 共用Menu Sidebar -->
+<!-- reference: https://www.codeply.com/go/7XYosZ7VH5 -->
+<div class="sidebar-expanded d-none d-md-block col-2 text-light bg-dark" th:fragment="sidebarFragment">
+
+	<!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+	<!-- Bootstrap List Group -->
+	<ul class="list-group sticky-top sticky-offset">
+	    <!-- Menu with submenu -->
+	    <a href="#home" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+	        <div class="d-flex w-100 justify-content-start align-items-center">
+	            <span class="menu-collapsed">Home</span>
+	        </div>
+	    </a>
+	    <a href="#profile" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+	        <div class="d-flex w-100 justify-content-start align-items-center">
+	            <span class="menu-collapsed">Profile</span>
+	        </div>
+	    </a>
+	    <a href="#contact" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+	        <div class="d-flex w-100 justify-content-start align-items-center">
+	            <span class="menu-collapsed">Contact</span>
+	        </div>
+	    </a>
+	    <a href="#settings" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+	        <div class="d-flex w-100 justify-content-start align-items-center">
+	            <span class="menu-collapsed">Settings</span>
+	        </div>
+	    </a>
+	    <!-- Logo -->
+	    <li class="list-group-item logo-separator d-flex justify-content-center">
+	        <img src="https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30">
+	    </li>
+	</ul>
+	<!-- List Group END-->
+</div>

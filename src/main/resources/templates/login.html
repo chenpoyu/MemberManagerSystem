@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: cssFragment">
+</head>
+<body class="login">
+	<nav th:replace="fragments/header :: headerFragment"></nav>
+    <div class="wrapper">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="account">帳號</label>
+                        <input type="text" class="form-control" id="account" placeholder="請輸入帳號">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">密碼</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="請輸入4-8碼密碼">
+                    </div>
+                    <div id="response"></div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-block" id="login">登入</button>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <a data-toggle="modal" data-target="#forgetModal">忘記密碼</a>
+                        </div>
+                        <div class="col-6">
+                            <a class="float-right" data-toggle="modal" data-target="#registerModal">註冊新用戶</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+	<!-- Modal -->
+	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
+	    <div class="modal-dialog modal-dialog-centered" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h5 class="modal-title" id="registerModalTitle">註冊使用者</h5>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <div class="modal-body">
+	                <form>
+	                    <div class="form-group">
+	                        <label for="r_account">帳號</label>
+	                        <input type="text" class="form-control" id="r_account" placeholder="請輸入4-40字帳號">
+	                    </div>
+	                    <div class="form-group">
+	                        <label for="r_pwd">密碼</label>
+	                        <input type="password" class="form-control" id="r_pwd" placeholder="請輸入4-8碼密碼">
+	                    </div>
+	                    <div id="r_response"></div>
+	                </form>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="r_cancel">取消</button>
+	                <button type="button" class="btn btn-warning" id="register">確定</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="forgetModal" tabindex="-1" role="dialog" aria-labelledby="forgetModalTitle" aria-hidden="true">
+	    <div class="modal-dialog modal-dialog-centered" role="document">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <h5 class="modal-title" id="forgetModalTitle">忘記密碼</h5>
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                    <span aria-hidden="true">&times;</span>
+	                </button>
+	            </div>
+	            <div class="modal-body">
+	                <form>
+	                    <div class="form-group">
+	                        <label for="f_account">帳號</label>
+	                        <input type="text" class="form-control" id="f_account" placeholder="請輸入帳號">
+	                    </div>
+	                    <div id="f_response"></div>
+	                </form>
+	            </div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="f_cancel">取消</button>
+	                <button type="button" class="btn btn-warning" id="forget">確定</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+    
+	<footer th:replace="fragments/footer :: copyFragment"></footer>
+	<div th:include="fragments/footer :: jsFragment"></div>
+	<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>

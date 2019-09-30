@@ -1,0 +1,87 @@
+body {
+    font-family: Microsoft JhengHei;
+    background-color: #fffaf4;
+}
+
+.login {
+    background-color: #D9D9DA;
+    color: #FFFFFF;
+}
+
+.login .wrapper {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    padding-top:5%;
+}
+
+.login .wrapper .card {
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.login .wrapper .card #login {
+    background-color: #E99E14;
+}
+
+.login .modal-header {
+    background-color: #140D41;
+}
+
+.login .modal-body,.modal-footer {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height: 40px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer .content {
+    text-align: center;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+}
+
+.main .menu {
+    background-color: #2f0000;
+}
+
+/* .nav a { */
+/*     color: #bb3d00; */
+/* } */
+
+/* .nav a:hover { */
+/*     color: #ffc78e; */
+/* } */
+
+/* .nav .active { */
+/*     background-color: #bb3d00; */
+/*     color: #ffc78e; */
+/* } */
+
+/* .nav .disabled { */
+/*     color: white !important; */
+/* } */
+
+@media only screen and (max-width: 750px) {
+    .login .wrapper {
+        display:flex;
+        justify-content:center;
+        padding-top:15%;
+    }
+
+    .login .wrapper .card {
+        width: 75%;
+    }
+}
