@@ -42,6 +42,9 @@ public class TbUser {
 	@Column(name = "passwd", length = 40, nullable = false)
 	private String passwd;
 
+	@Column(name = "email", length = 100, unique = true, nullable = false)
+	private String email;
+
 	@Column(name = "name", length = 100)
 	private String name;
 
@@ -54,7 +57,7 @@ public class TbUser {
 	private Date alterTime;
 
 	public static TbUser transToPo(UserVo userVo) {
-		return new TbUser(userVo.getId(), userVo.getAccount(), userVo.getPwd(), userVo.getName(),
+		return new TbUser(userVo.getId(), userVo.getAccount(), userVo.getPwd(), userVo.getEmail(), userVo.getName(),
 				userVo.getCreateTime(), userVo.getAlterTime());
 	}
 }

@@ -28,6 +28,8 @@ public class UserVo {
 	@NotBlank(message = "密碼不可為空")
 	private String pwd;
 
+	private String email;
+
 	private String name;
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -37,7 +39,7 @@ public class UserVo {
 	private Date alterTime;
 
 	public static UserVo transToVo(TbUser user) {
-		return new UserVo(user.getId(), user.getAccount(), user.getPasswd(), user.getName(), user.getCreateTime(),
-				user.getAlterTime());
+		return new UserVo(user.getId(), user.getAccount(), user.getPasswd(), user.getEmail(), user.getName(),
+				user.getCreateTime(), user.getAlterTime());
 	}
 }

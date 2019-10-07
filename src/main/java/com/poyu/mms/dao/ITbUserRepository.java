@@ -9,5 +9,7 @@ import com.poyu.mms.entity.po.TbUser;
 public interface ITbUserRepository extends JpaRepository<TbUser, String> {
 
 	Optional<TbUser> findByAccount(String account);
+	
+	Optional<TbUser> findByEmail(String email);
 
 }

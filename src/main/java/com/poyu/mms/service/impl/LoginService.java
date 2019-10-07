@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.poyu.mms.dao.ITbUserRepository;
 import com.poyu.mms.entity.po.TbUser;
@@ -26,16 +27,22 @@ public class LoginService implements ILoginService {
 	}
 
 	@Override
-	public void register(UserVo user) {
-		// TODO Auto-generated method stub
-
+	public void register(UserVo userVo) {
+		if (StringUtils.isEmpty(userVo.getEmail())) {
+			throw new IllegalArgumentException("Email不可為空");
+		} else if (userRepository.findByEmail(userVo.getEmail()).isPresent()) {
+			throw new IllegalArgumentException("Email不可使用");
+		}
+		TbUser user = TbUser.transToPo(userVo);
+		userRepository.save(user);
 	}
 
 	@Override
 	public void forgot(String account) throws Exception {
-//		if (StringUtils.isEmpty(account)) {
-//			throw new IllegalArgumentException("帳號不可為空");
-//		}
+		Optional<TbUser> user = userRepository.findByAccount(account);
+		if (user.isPresent()) {
+
+		}
 	}
 
 }
