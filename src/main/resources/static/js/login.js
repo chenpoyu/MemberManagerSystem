@@ -9,7 +9,7 @@ $(function() {
     
     // for test convience
     $('#account').val('admin');
-    $('#pwd').val('4321');
+    $('#pwd').val('1234');
 });
 
 function login() {
@@ -59,6 +59,8 @@ function login() {
 function register() {
     var account = $('#r_account').val();
     var pwd = $('#r_pwd').val();
+    var email = $('#r_email').val();
+    var name = $('#r_name').val();
     $('#r_response').html('');
 
     var errorMsg = '';
@@ -66,10 +68,14 @@ function register() {
         errorMsg = '帳號格式錯誤';
     } else if (!pwdRegex.test(pwd)) {
         errorMsg = '密碼格式錯誤';
+    } else if (!emailRegex.test(email)) {
+        errorMsg = 'Email格式錯誤';
     } else {
     	var data = { 
     		account: account
 			, pwd: pwd // TODO 加密
+			, name: name
+			, email: email
 		};
 		$.ajax({
 			url: "./api/register"
@@ -78,7 +84,7 @@ function register() {
 			, error: function( jqXHR, textStatus ) {
 				console.log( "Request failed: " + textStatus );
 	            $(warningAlert).appendTo('#r_response');
-	            $('#r_response #warning_alert').html(alertClose + error.message);
+	            $('#r_response #warning_alert').html(alertClose + jqXHR.responseJSON.message);
 			}
 			, success: function (msg) {
 	            $('#r_cancel').click();
@@ -95,12 +101,12 @@ function register() {
 }
 
 function forget() {
-    var account = $('#f_account').val();
+    var email = $('#f_email').val();
     $('#f_response').html('');
 
     var errorMsg = '';
-    if (!accountRegex.test(account)) {
-        errorMsg = '帳號格式錯誤';
+    if (!emailRegex.test(email)) {
+        errorMsg = 'Email格式錯誤';
     } else {
 		$.ajax({
 			url: "./api/forgot/" + account
@@ -108,7 +114,7 @@ function forget() {
 			, error: function( jqXHR, textStatus ) {
 				console.log( "Request failed: " + textStatus );
 	            $(warningAlert).appendTo('#f_response');
-	            $('#f_response #warning_alert').html(alertClose + error.message);
+	            $('#f_response #warning_alert').html(alertClose + jqXHR.responseJSON.message);
 			}
 			, success: function (msg) {
 	            $('#f_cancel').click();

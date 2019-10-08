@@ -1,0 +1,31 @@
+logging:
+  config: classpath:logback-spring.xml
+server:
+  port: 8090
+  servlet:
+    contextPath: /MemberManagerSystem
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: springboot
+    url: jdbc:mysql://localhost:3306/mms_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: springboot
+  jpa:
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect:
+          storage_engine: innodb
+        format_sql: true
+    show-sql: true
+  resources:
+    cache:
+      period: 0
+    static-locations: classpath:/static/
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
