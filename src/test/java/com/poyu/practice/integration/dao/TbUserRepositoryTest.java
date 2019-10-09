@@ -1,31 +1,39 @@
 package com.poyu.practice.integration.dao;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.Optional;
+
+import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.poyu.mms.MemberManagerSystemApplication;
+import com.poyu.mms.dao.ITbUserRepository;
+import com.poyu.mms.entity.po.TbUser;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@SpringBootTest(classes = MemberManagerSystemApplication.class)
+@Transactional
 public class TbUserRepositoryTest {
 
-//	@Autowired
-//	private TestEntityManager entityManager;
-//
-//	@Autowired
-//	private EmployeeRepository employeeRepository;
-//
-//	// write test cases here
-//	@Test
-//	public void whenFindByName_thenReturnEmployee() {
-//		// given
-//		Employee alex = new Employee("alex");
-//		entityManager.persist(alex);
-//		entityManager.flush();
-//
-//		// when
-//		Employee found = employeeRepository.findByName(alex.getName());
-//
-//		// then
-//		assertThat(found.getName()).isEqualTo(alex.getName());
-//	}
+	@Autowired
+	private ITbUserRepository tbUserRepository;
+
+	@Test
+	public void findByAccount() {
+		// given
+		TbUser tbUser = new TbUser("tester", "testpwd");
+		tbUser.setEmail("test@test.com");
+		tbUserRepository.save(tbUser);
+
+		Optional<TbUser> rtnUser = tbUserRepository.findByAccount("tester");
+		assertEquals(tbUser, rtnUser.isPresent() ? rtnUser.get() : null);
+
+		Optional<TbUser> rtnUser2 = tbUserRepository.findByAccount("null");
+		assertEquals(null, rtnUser2.isPresent() ? rtnUser2.get() : null);
+	}
 }
