@@ -7,9 +7,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: springboot
-    url: jdbc:mysql://localhost:3306/mms_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    username: springboot
+    url: jdbc:mysql://${DATASOURCE_HOST}/${DATASOURCE_NAME}?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
   jpa:
     database: MYSQL
     database-platform: org.hibernate.dialect.MySQL8Dialect

@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.poyu</groupId>
-	<artifactId>MemberManagerSystem</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>mms</artifactId>
+	<version>0.0.1</version>
 	<packaging>war</packaging>
-	<name>MemberManagerSystem</name>
+	<name>member-manage-system</name>
 	<description>My Demo project for Spring Boot</description>
 
 	<properties>
@@ -64,6 +64,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
