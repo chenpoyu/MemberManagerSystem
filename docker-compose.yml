@@ -22,7 +22,7 @@ services:
   app-server:
     depends_on:
       - app-db
-    #restart: always
+    restart: always
     image: mms/member-manage-system:0.0.1
     build:
       context: ./

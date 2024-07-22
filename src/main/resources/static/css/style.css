@@ -1,6 +1,8 @@
-body {
+html, body {
     font-family: Microsoft JhengHei;
     background-color: #fffaf4;
+    height: 100%;
+    width: 100%;
 }
 
 .login {
@@ -48,13 +50,21 @@ body {
     text-align: center;
 }
 
+.container {
+	position: absolute;
+	top: 100px;
+	bottom: 40px;
+	width: 100%;
+}
+
 .main {
-    width: 100%;
+    width: 80%;
     display: flex;
 }
 
 .main .menu {
     background-color: #2f0000;
+    float: left;
 }
 
 /* .nav a { */

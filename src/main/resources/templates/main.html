@@ -5,18 +5,20 @@
 <body>
 	<nav th:replace="fragments/header :: headerFragment"></nav>
     
-    <div th:replace="fragments/header :: sidebarFragment"></div>
-    
-    <div class="main">
-		<!-- Tab panes -->
-		<div class="tab-content">
-		    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">1234</div>
-		    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">4321</div>
-		    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">1111</div>
-		    <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">3333</div>
-		</div>
-    </div>
-
+    <div id="container">
+	    <div th:replace="fragments/header :: sidebarFragment"></div>
+	    
+	    <div class="main">
+			<!-- Tab panes -->
+			<div class="tab-content">
+			    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">歡迎進入人員管理系統</div>
+			    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">個人資料修改</div>
+			    <div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">會員資料維護</div>
+			    <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">設定</div>
+			</div>
+	    </div>
+	</div>
+	
 	<footer th:replace="fragments/footer :: copyFragment"></footer>
 	<div th:include="fragments/footer :: jsFragment"></div>
 	<script type="text/javascript" src="js/login.js"></script>
